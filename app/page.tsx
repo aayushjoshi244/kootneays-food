@@ -1,65 +1,236 @@
-import Image from "next/image";
+import Link from "next/link";
+import { SiteHeader } from "@/app/components/SiteHeader";
+import { SiteFooter } from "@/app/components/SiteFooter";
 
-export default function Home() {
+const PHONE_DISPLAY = "+(639) 916-0335";
+// Tel links should be digits/+ only (no spaces, parentheses)
+const PHONE_TEL = "+6399160335";
+
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    <div className="flex min-h-screen flex-col">
+      <SiteHeader />
+
+      <main className="flex-1 bg-slate-950">
+        {/* Hero */}
+        <section className="relative h-[78vh] min-h-[560px] w-full overflow-hidden border-b border-white/10">
+          {/* Background image */}
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage:
+                "url(https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=2400&q=80)",
+            }}
+          />
+
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-slate-950/70" />
+
+          {/* Content */}
+          <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-4 text-center">
+            <p className="text-xs sm:text-sm tracking-[0.35em] text-white/80 uppercase">
+              Kootenays Food Service Delivery
+            </p>
+
+            <h1 className="mt-4 text-4xl sm:text-6xl font-semibold tracking-tight text-white">
+              Your trusted delivery solution
+            </h1>
+
+            <p className="mt-5 max-w-2xl text-base sm:text-lg text-white/80">
+              Based in Cranbrook, British Columbia — delivering food-service
+              goods to restaurants and fast-food chains across the Kootenays.
+              Partnered with Sysco Canada.
+            </p>
+
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+              <a
+                href={`tel:${PHONE_TEL}`}
+                className="inline-flex items-center justify-center rounded-xl bg-amber-500 px-6 py-3 font-medium text-slate-900 transition hover:bg-amber-400"
+              >
+                Call {PHONE_DISPLAY}
+              </a>
+
+              <Link
+                href="#contact"
+                className="inline-flex items-center justify-center rounded-xl border border-white/30 px-6 py-3 text-white transition hover:bg-white/10"
+              >
+                Contact us
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Services */}
+        <section
+          id="services"
+          className="mx-auto max-w-6xl px-4 py-16 sm:py-20"
+        >
+          <div className="mb-10 text-center">
+            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white">
+              Services
+            </h2>
+            <p className="mt-3 text-slate-300">What we help you with</p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            <DarkCard
+              title="Food-service goods delivery"
+              desc="Delivery support for food-service goods to keep operations running smoothly."
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+            <DarkCard
+              title="Restaurant & fast-food support"
+              desc="Built to meet the pace and reliability expectations of commercial kitchens."
+            />
+            <DarkCard
+              title="Kootenays-wide coverage"
+              desc="Regional delivery coverage across the Kootenays area from our Cranbrook base."
+            />
+          </div>
+        </section>
+
+        {/* About */}
+        <section id="about" className="mx-auto max-w-6xl px-4 pb-16 sm:pb-20">
+          <div className="mb-10 text-center">
+            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white">
+              About
+            </h2>
+            <p className="mt-3 text-slate-300">
+              Local, dependable, and business-first
+            </p>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-2">
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-sm">
+              <h3 className="text-lg font-semibold text-white">Who we are</h3>
+              <p className="mt-2 text-slate-300">
+                We’re a local business based in Cranbrook, BC providing delivery
+                services of food-service goods to restaurants and fast-food
+                chains throughout the Kootenays area. We partner with Sysco
+                Canada to support efficient supply and distribution.
+              </p>
+            </div>
+
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-sm">
+              <h3 className="text-lg font-semibold text-white">
+                Business details
+              </h3>
+              <div className="mt-3 space-y-2 text-slate-300">
+                <p>
+                  <span className="font-semibold text-white">Owner:</span>{" "}
+                  Premjit Singh Sandhu
+                </p>
+                <p>
+                  <span className="font-semibold text-white">Phone:</span>{" "}
+                  <a
+                    className="underline underline-offset-4 hover:text-white"
+                    href={`tel:${PHONE_TEL}`}
+                  >
+                    {PHONE_DISPLAY}
+                  </a>
+                </p>
+                <p>
+                  <span className="font-semibold text-white">Base:</span>{" "}
+                  Cranbrook, British Columbia
+                </p>
+                <p>
+                  <span className="font-semibold text-white">
+                    Service area:
+                  </span>{" "}
+                  Kootenays region
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact */}
+        <section id="contact" className="mx-auto max-w-6xl px-4 pb-16 sm:pb-24">
+          <div className="mb-10 text-center">
+            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white">
+              Contact Us
+            </h2>
+            <p className="mt-3 text-slate-300">Drop us a line!</p>
+          </div>
+
+          <div className="mx-auto max-w-3xl">
+            <form className="space-y-4 rounded-3xl border border-white/10 bg-white/5 p-6 shadow-sm">
+              <input
+                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 outline-none focus:ring-2 focus:ring-amber-300"
+                placeholder="Name"
+                name="name"
+                autoComplete="name"
+              />
+              <input
+                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 outline-none focus:ring-2 focus:ring-amber-300"
+                placeholder="Email*"
+                name="email"
+                type="email"
+                autoComplete="email"
+                required
+              />
+              <textarea
+                className="min-h-[180px] w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 outline-none focus:ring-2 focus:ring-amber-300"
+                placeholder="Message"
+                name="message"
+                required
+              />
+              <button
+                type="submit"
+                className="w-full rounded-xl bg-amber-500 px-5 py-3 font-semibold text-slate-900 hover:bg-amber-400"
+              >
+                SEND
+              </button>
+
+              <p className="text-center text-xs text-slate-400">
+                Prefer calling?{" "}
+                <a
+                  className="underline underline-offset-4 hover:text-white"
+                  href={`tel:${PHONE_TEL}`}
+                >
+                  {PHONE_DISPLAY}
+                </a>
+              </p>
+            </form>
+          </div>
+        </section>
+
+        {/* Final CTA (Dark) */}
+        <section className="mx-auto max-w-6xl px-4 pb-20 sm:pb-28">
+          <div className="mx-auto max-w-3xl rounded-3xl border border-white/10 bg-white/5 p-8 text-center shadow-sm">
+            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white">
+              Ready to get started?
+            </h2>
+            <p className="mt-3 text-slate-300">
+              Fast, reliable delivery support across the Kootenays.
+            </p>
+
+            <p className="mt-6 text-slate-300">
+              Call to discuss service coverage and delivery needs for your
+              restaurant or fast-food location.
+            </p>
+
+            <div className="mt-6 flex justify-center">
+              <a
+                href={`tel:${PHONE_TEL}`}
+                className="inline-flex items-center justify-center rounded-xl bg-amber-500 px-6 py-3 font-medium text-slate-900 transition hover:bg-amber-400"
+              >
+                Call {PHONE_DISPLAY}
+              </a>
+            </div>
+          </div>
+        </section>
       </main>
+
+      <SiteFooter />
+    </div>
+  );
+}
+
+function DarkCard({ title, desc }: { title: string; desc: string }) {
+  return (
+    <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-sm">
+      <h3 className="text-lg font-semibold text-white">{title}</h3>
+      <p className="mt-2 text-slate-300">{desc}</p>
     </div>
   );
 }

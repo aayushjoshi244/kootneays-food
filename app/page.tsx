@@ -29,7 +29,7 @@ export default function HomePage() {
           {/* Content */}
           <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-4 text-center">
             <p className="text-xs sm:text-sm tracking-[0.35em] text-white/80 uppercase">
-              Kootenays Food Service Delivery
+              Kiera Transportation Ltd.
             </p>
 
             <h1 className="mt-4 text-4xl sm:text-6xl font-semibold tracking-tight text-white">

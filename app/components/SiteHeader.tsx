@@ -5,7 +5,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b bg-slate-950 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
         <Link href="/" className="font-semibold tracking-tight">
-          Kootenays Food Service Delivery
+          Kiera Transportation Ltd.
         </Link>
 
         <nav className="flex items-center gap-4 text-sm text-slate-700">

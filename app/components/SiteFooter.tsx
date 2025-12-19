@@ -9,7 +9,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-6xl px-4 py-10">
         <div className="grid gap-6 md:grid-cols-3">
           <div>
-            <div className="text-lg font-semibold">Kootenays Food Service Delivery</div>
+            <div className="text-lg font-semibold">Kiera Transportation Ltd.</div>
             <p className="mt-2 text-sm text-slate-700">
               Delivery services of food-service goods to restaurants and fast-food chains across the
               Kootenays area.
@@ -37,7 +37,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-8 border-t pt-6 text-xs text-slate-600">
-          © {year} Kootenays Food Service Delivery. All rights reserved.
+          © {year} Kiera Transportation Ltd. All rights reserved.
         </div>
       </div>
     </footer>

@@ -2,8 +2,7 @@ import Link from "next/link";
 import { SiteHeader } from "@/app/components/SiteHeader";
 import { SiteFooter } from "@/app/components/SiteFooter";
 
-const PHONE_DISPLAY = "+(639) 916-0335";
-// Tel links should be digits/+ only (no spaces, parentheses)
+const PHONE_DISPLAY = "+1 (639) 916-0335";
 const PHONE_TEL = "+6399160335";
 
 export default function HomePage() {
